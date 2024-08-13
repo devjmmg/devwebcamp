@@ -1,0 +1,60 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.bloques {
+
+    @include m.tablet {
+        margin-top: 10rem;
+    }
+    @include m.contenedor;
+
+    &__grid {
+
+        @include m.grid(1,3rem);
+        @include m.tablet {
+        @include m.grid(2,3rem);
+        }
+
+    }
+}
+
+.bloque {
+
+    padding: 3rem;
+    color: v.$blanco;
+    border-radius: 1rem;
+
+    &:nth-child(1) {
+        background-color: v.$rojo;
+    }
+
+    &:nth-child(2) {
+        background-color: v.$azul;
+    }
+
+    &:nth-child(3) {
+        background-color: purple;
+    }
+
+    &:nth-child(4) {
+        background-color: orange;
+    }
+
+    &__heading {
+        margin: 1rem;
+    }
+
+    &__contenido {
+
+    }
+
+    &__texto {
+
+        &--cantidad {
+            text-align: center;
+            margin: 1rem;
+            font-weight: v.$black;
+            font-size: 8rem;
+        }
+    }
+}

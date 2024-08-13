@@ -1,0 +1,108 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.eventos-registro {
+    
+    @include m.contenedor;
+    @include m.tablet {
+        display: flex;
+        gap: 2rem;
+    }
+    
+    &__listado {
+        
+        @include m.tablet {
+            
+            flex: 0 0 60%;
+            
+        }
+        
+    }
+    
+    &__grid {
+
+        @include m.grid(1,3rem);
+        
+        @include m.tablet {
+            @include m.grid(2,3rem);
+        }
+        
+    }
+
+    &__heading {
+        &--conferencias {
+
+            color: v.$azul;
+            @include m.texto-fluido(2rem,5rem);
+
+        }
+        &--workshops {
+            margin-top: 5rem;
+            color: v.$secundario;
+            @include m.texto-fluido(2rem,5rem);
+        }
+    }
+
+    &__fecha {
+
+        margin: 3rem 0 2rem 0;
+
+    }
+}
+
+.registro {
+
+    background-color: lighten(v.$gris, 47);
+    padding: 1rem;
+    border-radius: 1rem;
+    
+    @include m.tablet {
+        
+        flex: 0 0 40%;
+        position: sticky;
+        top: 3rem;
+        height: 100vh;
+    }
+    &__heading {
+        margin: 0 0 2rem 0;
+    }
+    &__evento {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:nth-child(even) {
+            background-color: darken(v.$gris-claro, 10);
+        }
+    }
+    &__nombre {
+        font-size: 2rem;
+        font-weight: v.$bold;
+        margin: 1rem;
+    }
+    &__eliminar {
+        all: unset;
+        color: v.$rojo;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__regalo {
+        margin-top: 3rem;
+    }
+    &__texto {
+        text-align: center;
+    }
+    &__label {
+        display: block;
+        font-size: 2rem;
+        font-weight: v.$bold;
+        margin-bottom: 1rem;
+    }
+    &__select {
+        width: 100%;
+        padding: 1rem;
+        border-radius: .5rem;
+        border: .1rem solid v.$gris;
+    }
+}

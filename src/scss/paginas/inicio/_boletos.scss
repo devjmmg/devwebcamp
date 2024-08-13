@@ -1,0 +1,174 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boletos {
+    
+    @include m.contenedor-sm;
+    
+    &__grid {
+        
+        @include m.grid(1,5rem);
+        
+    }
+    
+}
+
+.boleto {
+    
+    height: 50rem;
+    
+    margin: 0 auto;
+    padding: 6rem;
+    border-radius: 2rem;
+    color: v.$blanco;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    writing-mode: vertical-rl;
+
+    transition: height .5s ease, width .5s ease;
+    
+    @include m.tablet {
+        width: min(100%, 65rem);
+        writing-mode: unset;
+        height: auto;
+    }
+    
+    position: relative;
+    
+    &::before,
+    &::after {
+        
+        position: absolute;
+        content: '';
+        width: 5rem;
+        height: 5rem;
+        background-color: v.$blanco;
+        
+        right: calc(50% - 2.5rem);
+        
+        @include m.tablet {
+            top: calc( 50% - 2.5rem);
+            right: unset;
+        }
+    }
+    
+    &::before {
+        
+        clip-path: circle(50%);
+        top: -1rem;
+        
+        @include m.tablet {
+            top: unset;
+            clip-path: circle(50% at 30% 50% ); //El primero valor hace el cirulo, at El primer valor es horizontal, el segundo valor es el vertical
+            left: 0;
+        }
+        
+    }
+    
+    &::after {
+        
+        clip-path: circle(50%);
+        bottom: -1rem;
+        
+        @include m.tablet {
+            clip-path: circle(50% at 70% 50% ); //El primero valor hace el cirulo, at El primer valor es horizontal, el segundo valor es el vertical
+            right: 0;
+        }
+        
+    }
+    
+    &--presencial {
+        
+  background-color: hsla(0, 0%, 15%, 1); /* Fondo oscuro para resaltar los colores */
+  background-image:
+    radial-gradient(at 10% 10%, hsla(0, 100%, 60%, 0.8) 0px, transparent 70%), /* Rojo intenso */
+    radial-gradient(at 30% 20%, hsla(30, 100%, 60%, 0.8) 0px, transparent 60%), /* Naranja radiante */
+    radial-gradient(at 50% 30%, hsla(60, 100%, 60%, 0.8) 0px, transparent 60%), /* Amarillo brillante */
+    radial-gradient(at 70% 40%, hsla(120, 100%, 60%, 0.8) 0px, transparent 60%), /* Verde brillante */
+    radial-gradient(at 90% 50%, hsla(180, 100%, 60%, 0.8) 0px, transparent 60%), /* Cian vibrante */
+    radial-gradient(at 10% 70%, hsla(240, 100%, 60%, 0.8) 0px, transparent 60%), /* Azul profundo */
+    radial-gradient(at 30% 80%, hsla(270, 80%, 60%, 0.8) 0px, transparent 50%), /* Morado intenso */
+    radial-gradient(at 50% 90%, hsla(300, 80%, 60%, 0.8) 0px, transparent 50%), /* Magenta */
+    radial-gradient(at 70% 80%, hsla(330, 80%, 60%, 0.8) 0px, transparent 50%), /* Fucsia */
+    radial-gradient(at 90% 70%, hsla(0, 0%, 60%, 0.6) 0px, transparent 50%), /* Gris claro */
+    radial-gradient(at 20% 90%, hsla(0, 0%, 30%, 0.6) 0px, transparent 50%), /* Gris oscuro */
+    radial-gradient(at 50% 50%, hsla(0, 0%, 0%, 0.5) 0px, transparent 80%); /* Negro en el centro para profundidad */
+  
+        
+    }
+    
+    &--virtual {
+        
+  background-color: hsla(0, 0%, 10%, 1); /* Fondo oscuro para destacar los colores */
+  background-image:
+    radial-gradient(at 20% 30%, hsla(255, 0%, 50%, 0.8) 0px, transparent 60%), /* Azul claro */
+    radial-gradient(at 50% 50%, hsla(50, 100%, 50%, 0.8) 0px, transparent 60%), /* Verde brillante */
+    radial-gradient(at 80% 70%, hsla(0, 100%, 50%, 0.8) 0px, transparent 60%); /* Rojo intenso */
+  
+    }
+    
+    &--gratis {
+        background-color: v.$azul;
+    }
+    
+    &__logo {
+        
+        @include m.logo;
+        @include m.texto-fluido(2rem, 4rem);
+        margin: 0;
+        text-align: left;
+    }
+    
+    &__plan {
+        
+        font-size: 2rem;
+        text-transform: uppercase;
+        
+        
+    }
+
+    &__contenido {
+
+        display: flex;
+        justify-content: space-between;
+
+    }
+    
+    &__precio {
+        
+        font-weight: v.$black;
+        font-size: 4rem;
+        margin: 0;
+        
+    }
+
+    &__codigo {
+
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: v.$black;
+        writing-mode: horizontal-tb;
+
+        @include m.tablet {
+            writing-mode: vertical-lr;
+        }
+
+    }
+    
+    &__enlace-contenedor {
+        
+        display: flex;
+        justify-content: center;
+        
+    }
+    
+    &__enlace {
+        
+        margin-top: 5rem;
+        @include m.boton(v.$azul,v.$blanco);
+        width: auto;
+        
+    }
+}

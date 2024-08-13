@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.error-pagina {
+
+    text-align: center;
+
+    &__heading {
+
+
+
+    }
+
+    &__contenedor {
+
+        @include m.contenedor;
+
+    }
+
+    &__texto {
+
+        font-size: 2rem;
+
+    }
+
+    &__enlace {
+
+        @include m.boton(v.$azul,v.$blanco);
+        width: auto;
+
+    }
+
+}
