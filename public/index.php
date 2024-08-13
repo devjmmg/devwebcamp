@@ -17,6 +17,12 @@ use Controllers\RegistradoController;
 
 $router = new Router();
 
+//Páginas controller (Área Publica)
+$router->get('/',[PaginasController::class,'index']);
+$router->get('/devwebcamp',[PaginasController::class,'evento']);
+$router->get('/paquetes',[PaginasController::class,'paquetes']);
+$router->get('/workshops-conferencias',[PaginasController::class,'conferencias']);
+
 
 // Login
 $router->get('/login', [AuthController::class, 'login']);
@@ -63,12 +69,6 @@ $router->get('/api/regalos',[APIRegalosController::class,'index']);
 $router->get('/admin/registrados',[RegistradoController::class,'index']);
 
 $router->get('/admin/regalos',[RegaloController::class,'index']);
-
-//Páginas controller (Área Publica)
-$router->get('/',[PaginasController::class,'index']);
-$router->get('/devwebcamp',[PaginasController::class,'evento']);
-$router->get('/paquetes',[PaginasController::class,'paquetes']);
-$router->get('/workshops-conferencias',[PaginasController::class,'conferencias']);
 
 //Registro de usuarios
 $router->get('/finalizar-registro',[RegistroController::class,'crear']);
