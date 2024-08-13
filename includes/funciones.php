@@ -13,7 +13,7 @@ function s($html) : string {
 
 function paginaActual($path) {
     
-    return str_contains(strtok($_SERVER["REQUEST_URI"], "?") ?? "/",$path) ? true : false;
+    return str_contains(strtok($_SERVER["REQUEST_URI"], "?") ?? "/",$path);
     
 }
 
