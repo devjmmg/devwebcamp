@@ -73,6 +73,7 @@ class RegistroController {
             }
             
             $registro = Registro::whereArray(['usuario_id' => $_SESSION["id"], 'paquete_id' => '1']);
+            var_dump($registro);
             if($registro[0]) {
 
                 $evento_registro = EventosRegistros::where('registro_id', $registro[0]->id);

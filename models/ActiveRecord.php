@@ -105,42 +105,42 @@ class ActiveRecord {
 
     // Obtener todos los Registros
     public static function all($orden = 'DESC') {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id ${orden}";
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id {$orden}";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
 
     // Busca un registro por su id
     public static function find($id) {
-        $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE id = {$id}";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
 
     // Obtener Registros con cierta cantidad
     public static function get($limite) {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT ${limite}" ;
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$limite}" ;
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
 
     // Paginar los registros
     public static function paginar($limite, $offset) {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id ASC LIMIT ${limite} OFFSET ${offset}" ;
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id ASC LIMIT {$limite} OFFSET {$offset}" ;
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
 
     // Busqueda Where con Columna 
     public static function where($columna, $valor) {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna} = '${valor}'";
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
 
     //Retornar los registros por un orden
     public static function ordenar($columna, $orden) {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY ${columna} ${orden}";
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden}";
         $resultado = self::consultarSQL($query);
         return $resultado;
 
@@ -148,7 +148,7 @@ class ActiveRecord {
 
     //Retornar los registros por un orden y un limite
     public static function ordenarLimite($columna, $orden, $limite) {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY ${columna} ${orden} LIMIT ${limite}";
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden} LIMIT {$limite}";
         $resultado = self::consultarSQL($query);
         return $resultado;
 
@@ -159,9 +159,9 @@ class ActiveRecord {
         $query = "SELECT * FROM " . static::$tabla . " WHERE ";
         foreach($array as $key => $value){
             if($key === array_key_last($array)){
-                $query .= "${key} = ${value}";
+                $query .= "{$key} = {$value}";
             }else{
-                $query .= "${key} = ${value} AND ";
+                $query .= "{$key} = {$value} AND ";
             }
         }
         $resultado = self::consultarSQL($query);
@@ -172,7 +172,7 @@ class ActiveRecord {
     public static function total($columna = '', $valor = '') {
         $query = "SELECT COUNT(*) FROM " . static::$tabla ;
         if($columna && $valor) {
-            $query .= " WHERE ${columna} = ${valor}";
+            $query .= " WHERE {$columna} = {$valor}";
         }
         $resultado = self::$db->query($query);
         $total = $resultado->fetch_array();
@@ -184,9 +184,9 @@ class ActiveRecord {
         $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE ";
         foreach($array as $key => $value){
             if($key === array_key_last($array)){
-                $query .= "${key} = ${value}";
+                $query .= "{$key} = {$value}";
             }else{
-                $query .= "${key} = ${value} AND ";
+                $query .= "{$key} = {$value} AND ";
             }
         }
         $resultado = self::$db->query($query);

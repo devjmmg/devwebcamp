@@ -14,6 +14,10 @@ class Registro extends ActiveRecord {
     public $usuario_id;
     public $regalo_id;
 
+    public $paquete;
+    public $usuario;
+    public $regalo;
+
     public function __construct( $args = [] )
     {
 
