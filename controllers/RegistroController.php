@@ -73,8 +73,7 @@ class RegistroController {
             }
             
             $registro = Registro::whereArray(['usuario_id' => $_SESSION["id"], 'paquete_id' => '1']);
-            var_dump($registro);
-            if($registro[0]) {
+            if($registro) {
 
                 $evento_registro = EventosRegistros::where('registro_id', $registro[0]->id);
                 if($evento_registro) {
@@ -124,7 +123,7 @@ class RegistroController {
             }
             
             $registro = Registro::whereArray(['usuario_id' => $_SESSION["id"], 'paquete_id' => '2']);
-            if($registro[0]) {
+            if($registro) {
                 header("Location: /boleto?id=" . urlencode($registro[0]->token));
                 exit();
             }

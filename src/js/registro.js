@@ -13,6 +13,7 @@ import Swal from 'sweetalert2'
         const formulario = document.querySelector('#registro');
         if(formulario){
             formulario.addEventListener('submit',submitFormulario);
+
         }
 
         btnsAgregar.forEach( boton => boton.addEventListener('click',seleccionarEvento) );
@@ -119,6 +120,11 @@ import Swal from 'sweetalert2'
                 });
                 return;
             }
+
+            const btn = formulario.querySelector('[type="submit"]');
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+            btn.disabled = true;
 
             const data = new FormData();
             data.append('regaloId',regaloId);

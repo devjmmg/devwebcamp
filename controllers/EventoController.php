@@ -19,7 +19,7 @@ class EventoController {
             exit();
         }
         
-        $paginaActual = $_GET["page"];
+        $paginaActual = $_GET["page"] ?? 1;
         $paginaActual = filter_var($paginaActual,FILTER_VALIDATE_INT);
         if(!$paginaActual || $paginaActual < 1){
             header("Location: /admin/eventos?page=1");
