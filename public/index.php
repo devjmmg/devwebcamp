@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
-use MVC\Router;
 use Controllers\AuthController;
 use Controllers\EventoController;
 use Controllers\RegaloController;
@@ -14,8 +13,6 @@ use Controllers\DashboardController;
 use Controllers\APIPonenteController;
 use Controllers\APIRegalosController;
 use Controllers\RegistradoController;
-
-$router = new Router();
 
 //Páginas controller (Área Publica)
 $router->get('/',[PaginasController::class,'index']);

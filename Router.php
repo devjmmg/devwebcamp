@@ -43,15 +43,15 @@ class Router
             $$key = $value; 
         }
 
-        ob_start(); 
+        ob_start();
 
         include_once __DIR__ . "/views/$view.php";
 
-        $contenido = ob_get_clean(); // Limpia el Buffer
+        $contenido = ob_get_clean();
 
         $url_actual = strtok($_SERVER["REQUEST_URI"], "?") ?? "/";
 
-        if(str_contains($url_actual,"admin")) {
+        if(str_contains($url_actual, "admin")) {
 
             include_once __DIR__ . "/views/layout-admin.php";
 

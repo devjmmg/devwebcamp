@@ -5,6 +5,7 @@ if($argc < 3) {
     exit();
 }
 
+$contenido = '';
 $tipo = strtolower($argv[1]);
 $nombre = $argv[2];
 
@@ -21,7 +22,7 @@ switch($tipo):
     case 'c':
 
         $tipo = "Controlador";
-        $contenido = "<?php \n\n";
+        $contenido .= "<?php \n\n";
         $contenido .= "namespace Controllers;\n\n";
         $contenido .= "use MVC\Router;\n\n";
         $contenido .= "class $nombre {\n\n";
@@ -37,7 +38,7 @@ switch($tipo):
     case 'm':
 
         $tipo = "Modelo";
-        $contenido = "<?php \n\n";
+        $contenido .= "<?php \n\n";
         $contenido .= "namespace Model;\n\n";
         $contenido .= "class " . ucfirst($nombre) . " extends ActiveRecord {\n\n";
         $contenido .= '    protected static $tabla = ' . "'" . strtolower($nombre) . "s';\n";
@@ -55,7 +56,7 @@ switch($tipo):
 
 endswitch;
 
-if(file_put_contents($nombre,$contenido)) {
+if(file_put_contents($nombre, $contenido)) {
     echo ("$tipo creado correctamente");
 }else{
     echo ("Hubo algún error al crear el $tipo");

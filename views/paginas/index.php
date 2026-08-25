@@ -34,10 +34,10 @@
 
         <div <?php echo aos_efectos(); ?> class="speaker">
             <picture>
-                <source srcset="<?php echo $_ENV["HOST"].'/img/speakers/'.$ponente->imagen;?>.webp" type="image/webp">
-                <source srcset="<?php echo $_ENV["HOST"].'/img/speakers/'.$ponente->imagen;?>.png" type="image/png">
+                <source srcset="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$ponente->imagen;?>.webp" type="image/webp">
+                <source srcset="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$ponente->imagen;?>.png" type="image/png">
                 <img class="speaker__imagen" loading="lazy" width="150" height="80"
-                    src="<?php echo $_ENV["HOST"].'/img/speakers/'.$ponente->imagen;?>.png" alt="Imagen ponente">
+                    src="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$ponente->imagen;?>.png" alt="Imagen ponente">
             </picture>
 
             <div class="speaker__informacion">

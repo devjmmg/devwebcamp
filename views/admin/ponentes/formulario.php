@@ -35,9 +35,9 @@
     <p class="formulario__texto">Imagen Actual: </p>
     <div class="formulario__imagen">
         <picture>
-            <source srcset="<?php echo $_ENV["HOST"].'/img/speakers/'.$ponente->imagen;?>.webp" type="image/webp">
-            <source srcset="<?php echo $_ENV["HOST"].'/img/speakers/'.$ponente->imagen;?>.png" type="image/png">
-            <img loading="lazy" src="<?php echo $_ENV["HOST"].'/img/speakers/'.$ponente->imagen;?>.png" alt="Imagen ponente" width="150" height="80">
+            <source srcset="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$ponente->imagen;?>.webp" type="image/webp">
+            <source srcset="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$ponente->imagen;?>.png" type="image/png">
+            <img loading="lazy" src="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$ponente->imagen;?>.png" alt="Imagen ponente" width="150" height="80">
         </picture>
     </div>
 

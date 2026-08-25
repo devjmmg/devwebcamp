@@ -10,12 +10,12 @@
         <div class="evento__autor-info">
 
             <picture>
-                <source srcset="<?php echo $_ENV["HOST"].'/img/speakers/'.$evento->ponente->imagen;?>.webp"
+                <source srcset="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$evento->ponente->imagen;?>.webp"
                     type="image/webp">
-                <source srcset="<?php echo $_ENV["HOST"].'/img/speakers/'.$evento->ponente->imagen;?>.png"
+                <source srcset="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$evento->ponente->imagen;?>.png"
                     type="image/png">
                 <img class="evento__autor-imagen" loading="lazy" width="150" height="80"
-                    src="<?php echo $_ENV["HOST"].'/img/speakers/'.$evento->ponente->imagen;?>.png"
+                    src="<?php echo $_ENV["APP_URL"].'/img/speakers/'.$evento->ponente->imagen;?>.png"
                     alt="Imagen ponente">
             </picture>
 

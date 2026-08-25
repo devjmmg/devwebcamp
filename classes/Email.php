@@ -38,7 +38,7 @@ class Email {
 
         //  $contenido = '<html>';
         //  $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong> Has Registrado Correctamente tu cuenta en DevWebCamp; pero es necesario confirmarla</p>";
-        //  $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['HOST'] . "/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";       
+        //  $contenido .= "<p>Presiona aquí: <a href='" . $_ENV["APP_URL"] . "/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";       
         //  $contenido .= "<p>Si tu no creaste esta cuenta; puedes ignorar el mensaje</p>";
         //  $contenido .= '</html>';
         //  $mail->Body = $contenido;
@@ -79,7 +79,7 @@ class Email {
                                         <div class='content'>
                                             <p><strong>Hola:</strong> " . htmlspecialchars($this->nombre) . "</p>
                                             <p>Has creado tu cuenta en DevWebCamp. Por favor, confírmala haciendo clic en el siguiente enlace:</p>
-                                            <p><a class='btn' href='" . $_ENV['HOST'] . "/confirmar-cuenta?token=".urlencode($this->token)."'>Confirmar cuenta</a></p>
+                                            <p><a class='btn' href='" . $_ENV["APP_URL"] . "/confirmar-cuenta?token=".urlencode($this->token)."'>Confirmar cuenta</a></p>
                                             <p>Si no creaste esta cuenta, puedes ignorar este mensaje.</p>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@ class Email {
 
         // $contenido = '<html>';
         // $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong> Has solicitado reestablecer tu password, sigue el siguiente enlace para hacerlo.</p>";
-        // $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['HOST'] . "/recuperar?token=" . $this->token . "'>Reestablecer Password</a>";        
+        // $contenido .= "<p>Presiona aquí: <a href='" . $_ENV["APP_URL"] . "/recuperar?token=" . $this->token . "'>Reestablecer Password</a>";        
         // $contenido .= "<p>Si tu no solicitaste este cambio, puedes ignorar el mensaje</p>";
         // $contenido .= '</html>';
         // $mail->Body = $contenido;
@@ -156,7 +156,7 @@ class Email {
                                         <div class='content'>
                                         <p><strong>Hola:</strong> " . htmlspecialchars($this->nombre) . "</p>
                                         <p>Has solicitado restablecer tu contraseña. Por favor, haz clic en el siguiente enlace para proceder:</p>
-                                        <p><a class='btn' href='" . $_ENV['HOST'] . "/restablecer?token=" . $this->token . "'>Restablecer contraseña</a></p>
+                                        <p><a class='btn' href='" . $_ENV["APP_URL"] . "/restablecer?token=" . $this->token . "'>Restablecer contraseña</a></p>
                                         <p>Si no realizaste esta solicitud, puedes ignorar este mensaje.</p>
                                     </div>
                                 </body>
